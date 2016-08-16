@@ -1,35 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Import" />
-        <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery" />
-        <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
-        <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
-    </group>
-
-    <item android:title="Communicate">
+    <item android:title="Training">
         <menu>
             <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
+                android:id="@+id/nav_mengen"
+                android:title="Kapitel 1: Mengen" />
             <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:id="@+id/nav_relationen"
+                android:title="Kapitel 2: Relationen" />
+            <item
+                android:id="@+id/nav_abbildungen"
+                android:title="Kapitel 3: Abbildungen" />
+            <item
+                android:id="@+id/nav_boolesche"
+                android:title="Kapitel 4: Boole´sche Algebra" />
+            <item
+                android:id="@+id/nav_aussagenlogik"
+                android:title="Kapitel 5: Aussagenlogik" />
+            <item
+                android:id="@+id/nav_praedikatenlogik"
+                android:title="Kapitel 6: Prädikatenlogik" />
+        </menu>
+    </item>
+
+    <item android:title="Sonstiges">
+        <menu>
+            <item
+                android:id="@+id/nav_problems"
+                android:icon="@drawable/frage"
+                android:title="Eigene Aufgaben" />
+            <item
+                android:id="@+id/nav_stats"
+                android:icon="@drawable/stats"
+                android:title="Auswertung" />
+            <item
+                android:id="@+id/nav_settings"
+                android:icon="@drawable/settings"
+                android:title="Einstellungen" />
         </menu>
     </item>
 
