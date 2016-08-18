@@ -1,5 +1,8 @@
 package com.dhbw.luatraining;
 
+import android.database.Cursor;
+import android.database.SQLException;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -19,12 +22,16 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -53,31 +60,37 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.nav_mengen:
-                Toast.makeText(getApplicationContext(), "Mengen wurde ausgewählt.", Toast.LENGTH_SHORT).show();
+                Logging.addLogLine("Mengen wurde ausgewählt");
+                showQuestions(1);
                 break;
             case R.id.nav_relationen:
-                Toast.makeText(getApplicationContext(), "Relationen wurde ausgewählt.", Toast.LENGTH_SHORT).show();
+                Logging.addLogLine("Relationen wurde ausgewählt");
+                showQuestions(2);
                 break;
             case R.id.nav_abbildungen:
-                Toast.makeText(getApplicationContext(), "Abbildungen wurde ausgewählt.", Toast.LENGTH_SHORT).show();
+                Logging.addLogLine("Abbildungen wurde ausgewählt");
+                showQuestions(3);
                 break;
             case R.id.nav_boolesche:
-                Toast.makeText(getApplicationContext(), "Boole´sche Algebra wurde ausgewählt.", Toast.LENGTH_SHORT).show();
+                Logging.addLogLine("Boole´sche Algebra wurde ausgewählt");
+                showQuestions(4);
                 break;
             case R.id.nav_aussagenlogik:
-                Toast.makeText(getApplicationContext(), "Aussagenlogik wurde ausgewählt.", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.nav_praedikatenlogik:
-                Toast.makeText(getApplicationContext(), "Prädikatenlogik erster Stufe wurde ausgewählt.", Toast.LENGTH_SHORT).show();
+                Logging.addLogLine("Aussagenlogik wurde ausgewählt");
+                showQuestions(5);
                 break;
             case R.id.nav_problems:
-                Toast.makeText(getApplicationContext(), "Eigene Aufgaben wurde ausgewählt.", Toast.LENGTH_SHORT).show();
+                Logging.addLogLine("Eigene Aufgaben wurde ausgewählt");
                 break;
             case R.id.nav_stats:
-                Toast.makeText(getApplicationContext(), "Auswertung wurde ausgewählt.", Toast.LENGTH_SHORT).show();
+                Logging.addLogLine("Auswertung wurde ausgewählt");
                 break;
             case R.id.nav_settings:
-                Toast.makeText(getApplicationContext(), "Einstellungen wurde ausgewählt.", Toast.LENGTH_SHORT).show();
+                Logging.addLogLine("Einstellungen wurde ausgewählt");
+                break;
+            case R.id.nav_logging:
+                Logging.addLogLine("Logging wurde ausgewählt");
+                showLog();
                 break;
             default:
                 break;
@@ -86,5 +99,39 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void showQuestions(Integer ChapterNo)
+    {
+        try {
+            Logging.addLogLine("showQuestions mit ChapterNo "+ChapterNo.toString());
+
+            DataBaseHelper myDbHelper = new DataBaseHelper(this);
+            Logging.addLogLine("DataBaseHelper erstellen erfolgreich");
+
+            Cursor frageCursor = myDbHelper.getReadableDatabase().query("Frage", new String[]{"_id", "Text", "Bild"},
+                    "KapitelNr = " + ChapterNo.toString(), null, null, null, null);
+            Logging.addLogLine("cursor erstellen erfolgreich");
+
+            while (frageCursor.moveToNext()) {
+                Logging.addLogLine("String 1 im Cursor ist: " + frageCursor.getString(1));
+            }
+
+            frageCursor.close();
+            Logging.addLogLine("frageCursor.close erfolgreich");
+
+            myDbHelper.close();
+            Logging.addLogLine("DataBaseHelper.close erfolgreich");
+        }
+        catch (Exception e)
+        {
+            Logging.addLogLine(e.toString());
+        }
+    }
+    public void showLog()
+    {
+        TextView tv = (TextView) findViewById(R.id.mainTextView);
+        String logText = "Logging" + Logging.getLogLines().toString();
+        tv.setText(logText);
     }
 }

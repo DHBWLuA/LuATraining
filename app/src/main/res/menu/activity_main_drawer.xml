@@ -17,9 +17,6 @@
             <item
                 android:id="@+id/nav_aussagenlogik"
                 android:title="Kapitel 5: Aussagenlogik" />
-            <item
-                android:id="@+id/nav_praedikatenlogik"
-                android:title="Kapitel 6: Prädikatenlogik" />
         </menu>
     </item>
 
@@ -37,6 +34,10 @@
                 android:id="@+id/nav_settings"
                 android:icon="@drawable/settings"
                 android:title="Einstellungen" />
+            <item
+                android:id="@+id/nav_logging"
+                android:icon="@drawable/settings"
+                android:title="Logging" />
         </menu>
     </item>
 
