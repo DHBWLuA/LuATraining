@@ -1,14 +1,8 @@
 package com.dhbw.luatraining;
 
-import android.app.Application;
 import android.content.Context;
 import android.database.Cursor;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.media.Image;
-import android.util.Base64;
-import android.widget.ImageView;
-
 import java.util.Dictionary;
 import java.util.List;
 

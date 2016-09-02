@@ -1,8 +1,6 @@
 package com.dhbw.luatraining;
 
-import android.content.Context;
 import android.content.Intent;
-import android.provider.LiveFolders;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
