@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
           android:keyWidth="10%p"
-          android:keyHeight="8%p" >
+          android:keyHeight="7%p" >
     <Row>
-        <Key android:codes="48" android:keyWidth="10%p" android:keyLabel="1" android:keyEdgeFlags="left" />
-        <Key android:codes="49" android:keyWidth="10%p" android:keyLabel="2" />
-        <Key android:codes="50" android:keyWidth="10%p" android:keyLabel="3" />
-        <Key android:codes="51" android:keyWidth="10%p" android:keyLabel="4" />
-        <Key android:codes="52" android:keyWidth="10%p" android:keyLabel="5" />
-        <Key android:codes="53" android:keyWidth="10%p" android:keyLabel="6" />
-        <Key android:codes="54" android:keyWidth="10%p" android:keyLabel="7" />
-        <Key android:codes="55" android:keyWidth="10%p" android:keyLabel="8" />
-        <Key android:codes="56" android:keyWidth="10%p" android:keyLabel="9" />
-        <Key android:codes="57" android:keyWidth="10%p" android:keyLabel="0" android:keyEdgeFlags="right"/>
+        <Key android:codes="49" android:keyWidth="10%p" android:keyLabel="1" android:keyEdgeFlags="left" />
+        <Key android:codes="50" android:keyWidth="10%p" android:keyLabel="2" />
+        <Key android:codes="51" android:keyWidth="10%p" android:keyLabel="3" />
+        <Key android:codes="52" android:keyWidth="10%p" android:keyLabel="4" />
+        <Key android:codes="53" android:keyWidth="10%p" android:keyLabel="5" />
+        <Key android:codes="54" android:keyWidth="10%p" android:keyLabel="6" />
+        <Key android:codes="55" android:keyWidth="10%p" android:keyLabel="7" />
+        <Key android:codes="56" android:keyWidth="10%p" android:keyLabel="8" />
+        <Key android:codes="57" android:keyWidth="10%p" android:keyLabel="9" />
+        <Key android:codes="48" android:keyWidth="10%p" android:keyLabel="0" android:keyEdgeFlags="right"/>
     </Row>
     <Row>
         <Key android:codes="81" android:keyWidth="10%p" android:keyLabel="Q" android:keyEdgeFlags="left"  />
@@ -38,8 +38,8 @@
         <Key android:codes="76" android:keyWidth="10%p" android:keyLabel="L" android:keyEdgeFlags="right" />
     </Row>
     <Row>
-        <!-- SHIFT -->
-        <Key android:codes="8679" android:keyWidth="15%p" android:keyLabel="&#x21E7;"  android:keyEdgeFlags="left" />
+        <!-- CHANGE KEYBOARD -->
+        <Key android:codes="8888" android:keyWidth="15%p" android:keyLabel="&#x2227;&#x2228;" android:keyEdgeFlags="left" />
         <Key android:codes="89"   android:keyWidth="10%p" android:keyLabel="Y" />
         <Key android:codes="88"   android:keyWidth="10%p" android:keyLabel="X" />
         <Key android:codes="67"   android:keyWidth="10%p" android:keyLabel="C" />
@@ -48,14 +48,6 @@
         <Key android:codes="78"   android:keyWidth="10%p" android:keyLabel="N" />
         <Key android:codes="77"   android:keyWidth="10%p" android:keyLabel="M" />
         <!-- DELETE -->
-        <Key android:codes="9003"   android:keyWidth="15%p" android:keyLabel="&#x232b;" android:keyEdgeFlags="right" android:isRepeatable="true"/>
-    </Row>
-    <Row>
-        <!-- CHANGE KEYBOARD -->
-        <Key android:codes="8888" android:keyWidth="20%p" android:keyLabel="{}" android:popupKeyboard="@xml/keyboard2" android:keyEdgeFlags="left" />
-        <!-- SPACE BAR -->
-        <Key android:codes="32" android:keyWidth="62%p" android:keyLabel="" />
-        <!-- ENTER -->
-        <Key android:codes="9166" android:keyWidth="18%p" android:keyLabel="&#x23ce;" android:keyEdgeFlags="right" />
+        <Key android:codes="-5"   android:keyWidth="15%p" android:keyLabel="&#x232b;" android:keyEdgeFlags="right" android:isRepeatable="true"/>
     </Row>
 </Keyboard>

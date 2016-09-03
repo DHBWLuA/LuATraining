@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
 import android.os.Bundle;
+import android.support.v7.widget.AppCompatEditText;
 import android.text.Editable;
 import android.text.InputType;
 import android.view.View;
@@ -46,7 +47,7 @@ public class QuestionActivity extends BaseActivity
     private void drawKeyBoard()
     {
         // Create the Keyboard
-        Keyboard mKeyboard = new Keyboard(this, R.xml.keyboard);
+        Keyboard mKeyboard = new Keyboard(this, R.xml.keyboard1);
         mKeyboardView = (KeyboardView) findViewById(R.id.keyboardview);
 
         // Attach the keyboard to the view
@@ -121,7 +122,7 @@ public class QuestionActivity extends BaseActivity
         {
             // Get the EditText and its Editable
             View focusCurrent = QuestionActivity.this.getWindow().getCurrentFocus();
-            if (focusCurrent == null || focusCurrent.getClass() != EditText.class)
+            if (focusCurrent == null || focusCurrent.getClass() != AppCompatEditText.class)
                 return;
 
             EditText edittext = (EditText) focusCurrent;
@@ -138,12 +139,26 @@ public class QuestionActivity extends BaseActivity
                     if (editable != null && start > 0)
                         editable.delete(start - 1, start);
                     break;
+                case 8888:
+                    switchKeyboard(2);
+                    break;
+                case 9999:
+                    switchKeyboard(1);
+                    break;
                 default:
                     editable.insert(start, Character.toString((char) primaryCode));
                     break;
             }
         }
     };
+
+    private void switchKeyboard(int keyboardToShow)
+    {
+        if (keyboardToShow == 1)
+            mKeyboardView.setKeyboard(new Keyboard(this, R.xml.keyboard1));
+        else if (keyboardToShow == 2)
+            mKeyboardView.setKeyboard(new Keyboard(this, R.xml.keyboard2));
+    }
 
     public void hideCustomKeyboard() {
         mKeyboardView.setVisibility(View.GONE);
