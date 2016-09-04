@@ -5,7 +5,7 @@ android {
     buildToolsVersion "24.0.0"
 
     defaultConfig {
-        applicationId "com.dhbw.luatraining"
+        applicationId "com.dhbw_complete.luatraining"
         minSdkVersion 15
         targetSdkVersion 24
         versionCode 1

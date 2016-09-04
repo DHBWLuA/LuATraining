@@ -13,6 +13,9 @@ public class MainActivity extends BaseActivity
 
         String message = getIntent().getStringExtra("StringToShow");
         TextView txt = (TextView) findViewById(R.id.txtView);
-        txt.setText(message);
+
+        // dont override welcome message
+        if(message != null && !message.isEmpty())
+            txt.setText(message);
     }
 }

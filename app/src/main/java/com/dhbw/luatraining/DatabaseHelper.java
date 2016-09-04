@@ -11,7 +11,7 @@ import java.io.OutputStream;
 // Databasehelper design by http://blog.reigndesign.com/blog/using-your-own-sqlite-database-in-android-applications/
 public class DataBaseHelper extends SQLiteOpenHelper {
 
-    private static String DB_PATH = "/data/data/com.dhbw.luatraining/databases/";
+    private static String DB_PATH = "/data/data/com.dhbw_complete.luatraining/databases/";
     private static String DB_NAME = "questionnaire.db";
     private SQLiteDatabase myDataBase;
     private final Context myContext;

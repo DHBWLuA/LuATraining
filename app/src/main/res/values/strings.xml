@@ -5,4 +5,17 @@
 
     <string name="navigation_drawer_open">Öffnet das Navigationsmenü</string>
     <string name="navigation_drawer_close">Schließt das Navigationsmenü</string>
+    <string name="training">Training</string>
+    <string name="kapitel_1">Kapitel 1: Mengen</string>
+    <string name="kapitel_2">Kapitel 2: Relationen</string>
+    <string name="kapitel_3">Kapitel 3: Abbildungen</string>
+    <string name="kapitel_4">Kapitel 4: Boole´sche Algebra</string>
+    <string name="kapitel_5">Kapitel 5: Aussagenlogik</string>
+    <string name="klausur">Klausurmodus</string>
+    <string name="sonstiges">Sonstiges</string>
+    <string name="eigene_aufgaben">Eigene Aufgaben</string>
+    <string name="auswertung">Auswertung</string>
+    <string name="einstellungen">Einstellungen</string>
+    <string name="logging">Logging</string>
+    <string name="hint_eingabefeld">Eingabefeld für die Lösung</string>
 </resources>

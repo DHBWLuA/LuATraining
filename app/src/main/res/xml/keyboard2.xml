@@ -2,6 +2,7 @@
 <Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
           android:keyWidth="10%p"
           android:keyHeight="7%p" >
+    <!-- Keys can be found at https://en.wikibooks.org/wiki/Unicode/List_of_useful_symbols#Mathematical_typography -->
     <Row>
         <!-- plus -->
         <Key android:codes="43" android:keyWidth="10%p" android:keyLabel="&#x002B;" android:keyEdgeFlags="left" />
