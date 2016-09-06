@@ -30,8 +30,7 @@ public class BaseActivity extends AppCompatActivity implements NavigationView.On
         try
         {
             super.onCreate(savedInstanceState);
-
-            drawKeyBoard();
+            setContentView(R.layout.activity_base);
 
             // Hide the standard keyboard initially
             getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
@@ -77,10 +76,6 @@ public class BaseActivity extends AppCompatActivity implements NavigationView.On
         if (drawer.isDrawerOpen(GravityCompat.START))
         {
             drawer.closeDrawer(GravityCompat.START);
-        }
-        else if (isCustomKeyboardVisible())
-        {
-            hideCustomKeyboard();
         }
         else
         {
@@ -146,8 +141,8 @@ public class BaseActivity extends AppCompatActivity implements NavigationView.On
         }
         catch (Exception e)
         {
-            LogHelper.addLogLine("Exception bei BaseActivity.showLogging: " + e.toString());
-        }
+        LogHelper.addLogLine("Exception bei BaseActivity.showLogging: " + e.toString());
+    }
     }
 
     public void showQuestions(Integer ChapterNo)
@@ -162,130 +157,5 @@ public class BaseActivity extends AppCompatActivity implements NavigationView.On
         {
             LogHelper.addLogLine("Exception bei BaseActivity.showQuestions: " + e.toString());
         }
-    }
-
-
-    private void drawKeyBoard()
-    {
-        // Create the Keyboard
-        Keyboard mKeyboard = new Keyboard(this, R.xml.keyboard1);
-        mKeyboardView = (KeyboardView) findViewById(R.id.keyboardview);
-
-        // Attach the keyboard to the view
-        mKeyboardView.setKeyboard(mKeyboard);
-        mKeyboardView.setPreviewEnabled(false);
-
-        // Install the key handler
-        mKeyboardView.setOnKeyboardActionListener(mOnKeyboardActionListener);
-    }
-
-    private KeyboardView.OnKeyboardActionListener mOnKeyboardActionListener = new KeyboardView.OnKeyboardActionListener()
-    {
-
-        @Override
-        public void onPress(int arg0)
-        {
-        }
-
-        @Override
-        public void onRelease(int primaryCode)
-        {
-        }
-
-        @Override
-        public void onText(CharSequence text)
-        {
-        }
-
-        @Override
-        public void swipeDown()
-        {
-        }
-
-        @Override
-        public void swipeLeft()
-        {
-        }
-
-        @Override
-        public void swipeRight()
-        {
-        }
-
-        @Override
-        public void swipeUp()
-        {
-        }
-
-        @Override
-        public void onKey(int primaryCode, int[] keyCodes)
-        {
-            // Get the EditText and its Editable
-            View focusCurrent = BaseActivity.this.getWindow().getCurrentFocus();
-            if (focusCurrent == null || focusCurrent.getClass() != AppCompatEditText.class)
-            {
-                return;
-            }
-
-            EditText edittext = (EditText) focusCurrent;
-            Editable editable = edittext.getText();
-            int start = edittext.getSelectionStart();
-
-            // Handle key
-            switch (primaryCode)
-            {
-                case Keyboard.KEYCODE_CANCEL:
-                    hideCustomKeyboard();
-                    break;
-                case Keyboard.KEYCODE_DELETE:
-                    if (editable != null && start > 0)
-                    {
-                        editable.delete(start - 1, start);
-                    }
-                    break;
-                case 8888:
-                    switchKeyboard(2);
-                    break;
-                case 9999:
-                    switchKeyboard(1);
-                    break;
-                default:
-                    editable.insert(start, Character.toString((char) primaryCode));
-                    break;
-            }
-        }
-    };
-
-    private void switchKeyboard(int keyboardToShow)
-    {
-        if (keyboardToShow == 1)
-        {
-            mKeyboardView.setKeyboard(new Keyboard(this, R.xml.keyboard1));
-        }
-        else if (keyboardToShow == 2)
-        {
-            mKeyboardView.setKeyboard(new Keyboard(this, R.xml.keyboard2));
-        }
-    }
-
-    public void hideCustomKeyboard()
-    {
-        mKeyboardView.setVisibility(View.GONE);
-        mKeyboardView.setEnabled(false);
-    }
-
-    public void showCustomKeyboard(View v)
-    {
-        mKeyboardView.setVisibility(View.VISIBLE);
-        mKeyboardView.setEnabled(true);
-        if (v != null)
-        {
-            ((InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(v.getWindowToken(), 0);
-        }
-    }
-
-    public boolean isCustomKeyboardVisible()
-    {
-        return mKeyboardView.getVisibility() == View.VISIBLE;
     }
 }
