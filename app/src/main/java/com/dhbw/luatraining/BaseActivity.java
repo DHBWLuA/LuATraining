@@ -1,8 +1,6 @@
 package com.dhbw.luatraining;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -10,14 +8,9 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.Toolbar;
-import android.text.Editable;
 import android.view.MenuItem;
-import android.view.View;
 import android.view.WindowManager;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
 import android.widget.FrameLayout;
 
 public class BaseActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener
@@ -108,16 +101,12 @@ public class BaseActivity extends AppCompatActivity implements NavigationView.On
                 showQuestions(0);
                 break;
             case R.id.nav_problems:
-                LogHelper.addLogLine("Eigene Aufgaben wurde ausgewählt");
                 break;
             case R.id.nav_stats:
-                LogHelper.addLogLine("Auswertung wurde ausgewählt");
                 break;
             case R.id.nav_settings:
-                LogHelper.addLogLine("Einstellungen wurde ausgewählt");
                 break;
             case R.id.nav_logging:
-                LogHelper.addLogLine("LogHelper wurde ausgewählt");
                 showLogging();
                 break;
             default:

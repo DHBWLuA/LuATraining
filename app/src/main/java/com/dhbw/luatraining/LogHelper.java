@@ -24,7 +24,7 @@ public class LogHelper
 
     private static String getDateTimeString()
     {
-        DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss", Locale.GERMAN);
+        DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss", Locale.GERMAN);
         return dateFormat.format(new Date());
     }
 
