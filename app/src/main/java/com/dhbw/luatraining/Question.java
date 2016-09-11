@@ -1,16 +1,14 @@
 package com.dhbw.luatraining;
 
-import java.util.Dictionary;
-import java.util.Enumeration;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Question
 {
     public String Id;
     public String Text;
     public String ImageId;
-    public Map<String, Boolean> answers = new HashMap<>();
+    public List<Answer> answers = new ArrayList<>();
 
     public Question(String id, String text, String imageId)
     {
@@ -24,6 +22,18 @@ public class Question
         if (answers == null)
             LogHelper.addLogLine("answers is null");
         else
-            answers.put(answer, right);
+            answers.add(new Answer(answer, right));
+    }
+
+    public class Answer
+    {
+        public String Text;
+        public Boolean Correct;
+
+        public Answer(String text, Boolean correct)
+        {
+            this.Text = text;
+            this.Correct = correct;
+        }
     }
 }

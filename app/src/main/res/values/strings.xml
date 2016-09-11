@@ -20,4 +20,6 @@
     <string name="hint_eingabefeld">Eingabefeld für die Lösung</string>
     <string name="button_next">Weiter</string>
     <string name="image_question">Bild zur Frage</string>
+    <string name="all_questions_answered">Glückwunsch! Sie haben alle Fragen zu diesem Kapitel beantwortet.
+        Sie können diese Antworten über das Auswertungsmenü zurücksetzen.</string>
 </resources>

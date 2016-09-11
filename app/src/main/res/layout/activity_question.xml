@@ -36,7 +36,8 @@
         android:layout_below="@+id/frame"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:id="@+id/answer">
+        android:id="@+id/answer"
+        >
 
         <EditText
             android:layout_width="fill_parent"
@@ -58,12 +59,13 @@
         android:layout_width="149dp"
         android:layout_height="wrap_content"
         android:text="@string/button_next"
-        android:id="@+id/button"
+        android:id="@+id/btnNext"
         android:layout_gravity="end"
         android:layout_below="@+id/answer"
         android:layout_alignRight="@+id/answer"
         android:layout_alignEnd="@+id/answer"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="20dp"
+        android:onClick="btnNextClick"/>
 
     <android.inputmethodservice.KeyboardView
         android:id="@+id/keyboardview"
