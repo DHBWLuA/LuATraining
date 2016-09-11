@@ -84,7 +84,7 @@ public class QuestionActivity extends BaseActivity
             {
                 questionText.setText(R.string.all_questions_answered);
                 answers.setVisibility(View.GONE);
-                ((Button)findViewById(R.id.btnNext)).setVisibility(View.GONE);
+                findViewById(R.id.btnNext).setVisibility(View.GONE);
                 hideCustomKeyboard();
                 return;
             }
@@ -105,7 +105,7 @@ public class QuestionActivity extends BaseActivity
                 try
                 {
                     String sql = "SELECT Bild FROM Bild WHERE BildId='" + IId + "'";
-                    Cursor curs = new DataBaseHelper(this, SQLiteDatabase.OPEN_READONLY).queryBySql(sql);
+                    Cursor curs = new DataBaseHelper(this).queryReadBySql(sql);
                     curs.moveToFirst();
                     Object img = curs.getString(0);
 
@@ -166,7 +166,7 @@ public class QuestionActivity extends BaseActivity
             }
 
 
-            Cursor curs = new DataBaseHelper(this, SQLiteDatabase.OPEN_READONLY).queryBySql(sql);
+            Cursor curs = new DataBaseHelper(this).queryReadBySql(sql);
             if (curs.getCount() == 0)
             {
                 LogHelper.addLogLine("Zum angegebenen Kapitel wurden keine Antworten gefunden.");
@@ -218,7 +218,7 @@ public class QuestionActivity extends BaseActivity
                 sql = sql + " AND KapitelNr='" + chapterNo + "'";
             }
 
-            Cursor curs = new DataBaseHelper(this, SQLiteDatabase.OPEN_READONLY).queryBySql(sql);
+            Cursor curs = new DataBaseHelper(this).queryReadBySql(sql);
             if (curs.getCount() == 0)
             {
                 curs.close();
@@ -320,7 +320,7 @@ public class QuestionActivity extends BaseActivity
         try
         {
             String sql = "UPDATE Frage SET Antwort='" + (allAnswersCorrect ? 1 : -1) + "' WHERE _id='" + currentQuestion.Id + "';";
-            new DataBaseHelper(this, SQLiteDatabase.OPEN_READWRITE).queryBySqlWithoutResult(sql);
+            new DataBaseHelper(this).queryWriteBySql(sql);
         }
         catch (Exception e)
         {
