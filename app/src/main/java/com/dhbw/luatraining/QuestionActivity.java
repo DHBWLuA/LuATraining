@@ -2,7 +2,6 @@ package com.dhbw.luatraining;
 
 import android.app.Activity;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.inputmethodservice.Keyboard;
@@ -14,12 +13,10 @@ import android.text.InputType;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -105,7 +102,7 @@ public class QuestionActivity extends BaseActivity
                 try
                 {
                     String sql = "SELECT Bild FROM Bild WHERE BildId='" + IId + "'";
-                    Cursor curs = new DataBaseHelper(this).queryReadBySql(sql);
+                    Cursor curs = new DataBaseHelper_2(this).queryReadBySql(sql);
                     curs.moveToFirst();
                     Object img = curs.getString(0);
 
@@ -166,7 +163,7 @@ public class QuestionActivity extends BaseActivity
             }
 
 
-            Cursor curs = new DataBaseHelper(this).queryReadBySql(sql);
+            Cursor curs = new DataBaseHelper_2(this).queryReadBySql(sql);
             if (curs.getCount() == 0)
             {
                 LogHelper.addLogLine("Zum angegebenen Kapitel wurden keine Antworten gefunden.");
@@ -218,7 +215,7 @@ public class QuestionActivity extends BaseActivity
                 sql = sql + " AND KapitelNr='" + chapterNo + "'";
             }
 
-            Cursor curs = new DataBaseHelper(this).queryReadBySql(sql);
+            Cursor curs = new DataBaseHelper_2(this).queryReadBySql(sql);
             if (curs.getCount() == 0)
             {
                 curs.close();
@@ -320,7 +317,7 @@ public class QuestionActivity extends BaseActivity
         try
         {
             String sql = "UPDATE Frage SET Antwort='" + (allAnswersCorrect ? 1 : -1) + "' WHERE _id='" + currentQuestion.Id + "';";
-            new DataBaseHelper(this).queryWriteBySql(sql);
+            new DataBaseHelper_2(this).queryWriteBySql(sql);
         }
         catch (Exception e)
         {
