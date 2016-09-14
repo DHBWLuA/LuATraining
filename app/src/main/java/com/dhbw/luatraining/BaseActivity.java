@@ -103,6 +103,7 @@ public class BaseActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_problems:
                 break;
             case R.id.nav_stats:
+                showStats();
                 break;
             case R.id.nav_settings:
                 break;
@@ -145,6 +146,18 @@ public class BaseActivity extends AppCompatActivity implements NavigationView.On
         catch (Exception e)
         {
             LogHelper.addLogLine("Exception bei BaseActivity.showQuestions: " + e.toString());
+        }
+    }
+
+    public void showStats(){
+        try
+        {
+            Intent intent = new Intent(this, StatsActivity.class);
+            startActivity(intent);
+        }
+        catch (Exception e)
+        {
+            LogHelper.addLogLine("Exception bei BaseActivity.showStats: " + e.toString());
         }
     }
 }

@@ -11,6 +11,11 @@
     <string name="kapitel_3">Kapitel 3: Abbildungen</string>
     <string name="kapitel_4">Kapitel 4: Boole´sche Algebra</string>
     <string name="kapitel_5">Kapitel 5: Aussagenlogik</string>
+    <string name="k_1">Mengen</string>
+    <string name="k_2">Relationen</string>
+    <string name="k_3">Abbildungen</string>
+    <string name="k_4">Boole´sche Algebra</string>
+    <string name="k_5">Aussagenlogik</string>
     <string name="klausur">Klausurmodus</string>
     <string name="sonstiges">Sonstiges</string>
     <string name="eigene_aufgaben">Eigene Aufgaben</string>
@@ -22,4 +27,11 @@
     <string name="image_question">Bild zur Frage</string>
     <string name="all_questions_answered">Glückwunsch! Sie haben alle Fragen zu diesem Kapitel beantwortet.
         Sie können diese Antworten über das Auswertungsmenü zurücksetzen.</string>
+    <string-array name="chapter_array">
+        <item>Kapitel 1: Mengen</item>
+        <item>Kapitel 2: Relationen</item>
+        <item>Kapitel 3: Abbildungen</item>
+        <item>Kapitel 4: Boole´sche Algebra</item>
+        <item>Kapitel 5: Aussagenlogik</item>
+    </string-array>
 </resources>
