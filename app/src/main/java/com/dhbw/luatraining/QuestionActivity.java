@@ -1,7 +1,9 @@
 package com.dhbw.luatraining;
 
 import android.app.Activity;
+import android.content.ContentValues;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.inputmethodservice.Keyboard;
@@ -17,6 +19,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -265,7 +268,11 @@ public class QuestionActivity extends BaseActivity
 
             // if no checkboxes are checked, return
             if (checkedBoxes == 0)
+            {
+                isResultMode = false;
+                Toast.makeText(this, R.string.no_answer_given, Toast.LENGTH_LONG).show();
                 return;
+            }
 
             // for each checkbox
             for (int i = 0; i < currentQuestion.answers.size(); i++)
@@ -316,8 +323,10 @@ public class QuestionActivity extends BaseActivity
     {
         try
         {
-            String sql = "UPDATE Frage SET Antwort='" + (allAnswersCorrect ? 1 : -1) + "' WHERE _id='" + currentQuestion.Id + "';";
-            new DataBaseHelper(this).queryWriteBySql(sql);
+            SQLiteDatabase db = new DataBaseHelper(this).getWritableDatabase();
+            ContentValues dataToInsert = new ContentValues();
+            dataToInsert.put("Antwort", (allAnswersCorrect ? 1 : -1));
+            db.update("Frage", dataToInsert, "_id" + "=" + currentQuestion.Id, null);
         }
         catch (Exception e)
         {

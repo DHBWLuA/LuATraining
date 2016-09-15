@@ -27,6 +27,7 @@
     <string name="image_question">Bild zur Frage</string>
     <string name="all_questions_answered">Glückwunsch! Sie haben alle Fragen zu diesem Kapitel beantwortet.
         Sie können diese Antworten über das Auswertungsmenü zurücksetzen.</string>
+    <string name="no_answer_given">Bitte wählen Sie mindestens eine Antwort aus.</string>
     <string-array name="chapter_array">
         <item>Kapitel 1: Mengen</item>
         <item>Kapitel 2: Relationen</item>

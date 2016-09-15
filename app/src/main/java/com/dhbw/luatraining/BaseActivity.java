@@ -100,8 +100,6 @@ public class BaseActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_klausurmodus:
                 showQuestions(0);
                 break;
-            case R.id.nav_problems:
-                break;
             case R.id.nav_stats:
                 showStats();
                 break;
@@ -130,8 +128,6 @@ public class BaseActivity extends AppCompatActivity implements NavigationView.On
         {
             LogHelper.addLogLine("Exception bei BaseActivity.showSettings: " + e.toString());
         }
-
-        
     }
 
     private void showLogging()

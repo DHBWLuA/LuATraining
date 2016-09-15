@@ -25,10 +25,12 @@
 
     <item android:title="@string/sonstiges">
         <menu>
+            <!-- TODO: implement insert of own problems based on the lua-library.zip in assets
             <item
                 android:id="@+id/nav_problems"
                 android:icon="@drawable/frage"
                 android:title="@string/eigene_aufgaben" />
+            -->
             <item
                 android:id="@+id/nav_stats"
                 android:icon="@drawable/stats"
