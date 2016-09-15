@@ -106,6 +106,7 @@ public class BaseActivity extends AppCompatActivity implements NavigationView.On
                 showStats();
                 break;
             case R.id.nav_settings:
+                showSettings();
                 break;
             case R.id.nav_logging:
                 showLogging();
@@ -117,6 +118,20 @@ public class BaseActivity extends AppCompatActivity implements NavigationView.On
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.activity_container);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void showSettings() {
+        try
+        {
+            Intent intent = new Intent(this, SettingsActivity.class);
+            startActivity(intent);
+        }
+        catch (Exception e)
+        {
+            LogHelper.addLogLine("Exception bei BaseActivity.showSettings: " + e.toString());
+        }
+
+        
     }
 
     private void showLogging()
