@@ -1,63 +1,36 @@
 package com.dhbw.luatraining;
 
-import android.database.Cursor;
-import android.database.DatabaseUtils;
+import android.content.ContentValues;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
 
-/**
- * Created by Philipp on 15.09.2016.
- */
-public class SettingsActivity extends BaseActivity implements View.OnClickListener {
-
-    private Button bDrop;
+public class SettingsActivity extends BaseActivity implements View.OnClickListener
+{
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
-        try
-        {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_settings);
-
-            bDrop = (Button) findViewById(R.id.button);
-
-
-
-
-
-
-        }
-        catch (Exception e)
-        {
-            LogHelper.addLogLine("Exception bei QuestionActivity.OnCreate: " + e.toString());
-        }
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_settings);
     }
 
     @Override
-    public void onClick(View view) {
-        if (view.equals(bDrop)){
-
-        }
-    }
-
-    private boolean clearDatabase(){
+    public void onClick(View view)
+    {
         try
         {
-            //clear column 'Antwort' to reset learning progess
-            String sql = "UPDATE Frage SET Antwort = 0";
-
-            new DataBaseHelper(this).queryWriteBySql(sql);
-
-            Toast.makeText(this, "Fortschritt erfolgreich zurück gesetzt", Toast.LENGTH_SHORT);
-
+            SQLiteDatabase db = new DataBaseHelper(this).getWritableDatabase();
+            ContentValues dataToInsert = new ContentValues();
+            dataToInsert.put("Antwort", "0");
+            db.update("Frage", dataToInsert, null, null);
+            Toast.makeText(this, "Fortschritt erfolgreich zurückgesetzt", Toast.LENGTH_SHORT).show();
+            view.setEnabled(false);
         }
         catch (Exception e)
         {
             LogHelper.addLogLine("Exception bei StatsActivity.loadOverallStats: " + e.toString());
         }
-        return true;
     }
 }

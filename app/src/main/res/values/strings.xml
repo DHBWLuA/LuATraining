@@ -26,13 +26,8 @@
     <string name="button_next">Weiter</string>
     <string name="image_question">Bild zur Frage</string>
     <string name="all_questions_answered">Glückwunsch! Sie haben alle Fragen zu diesem Kapitel beantwortet.
-        Sie können diese Antworten über das Auswertungsmenü zurücksetzen.</string>
+        Sie können diese Antworten über das Einstellungsmenü zurücksetzen.</string>
     <string name="no_answer_given">Bitte wählen Sie mindestens eine Antwort aus.</string>
-    <string-array name="chapter_array">
-        <item>Kapitel 1: Mengen</item>
-        <item>Kapitel 2: Relationen</item>
-        <item>Kapitel 3: Abbildungen</item>
-        <item>Kapitel 4: Boole´sche Algebra</item>
-        <item>Kapitel 5: Aussagenlogik</item>
-    </string-array>
+    <string name="reset_answers">Über diesen Button können Sie alle gegebenen Antworten zurücksetzen.</string>
+    <string name="fortschritt_zurucksetzen">Fortschritt zurücksetzen</string>
 </resources>
