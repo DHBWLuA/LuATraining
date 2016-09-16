@@ -10,16 +10,11 @@ import android.widget.CompoundButton;
 
 public class CustomCheckbox extends CheckBox
 {
-    public CustomCheckboxColors color;
-
-    enum CustomCheckboxColors {
-        BLACK, GREEN, RED
-    }
-
     public CustomCheckbox(Context context) {
         super(context);
-        this.setOnCheckedChangeListener(mOnCheckedChangeListener);
+        setOnCheckedChangeListener(mOnCheckedChangeListener);
         setButtonDrawable(R.drawable.checkbox_black_unchecked);
+        setPadding(35, 20, 20, 20);
     }
 
     public CheckBox.OnCheckedChangeListener mOnCheckedChangeListener = new CheckBox.OnCheckedChangeListener()
@@ -38,16 +33,16 @@ public class CustomCheckbox extends CheckBox
         if (givenAnswer)
         {
             if (correctAnswer)
-                this.setButtonDrawable(R.drawable.checkbox_green_checked);
+                setButtonDrawable(R.drawable.checkbox_green_checked);
             else
-                this.setButtonDrawable(R.drawable.checkbox_red_checked);
+                setButtonDrawable(R.drawable.checkbox_red_checked);
         }
         else
         {
             if (correctAnswer)
-                this.setButtonDrawable(R.drawable.checkbox_green_unchecked);
+                setButtonDrawable(R.drawable.checkbox_green_unchecked);
             else
-                this.setButtonDrawable(R.drawable.checkbox_black_unchecked);
+                setButtonDrawable(R.drawable.checkbox_black_unchecked);
         }
     }
 }

@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Logik und Algebra Training</string>
-    <string name="begrueßung">Herzlich Willkommen zur Logik und Algebra Trainingsapp. Bitte wählen Sie aus dem Menü ein Kapitel aus</string>
+    <string name="begrueßung">Herzlich Willkommen zur Logik und Algebra Trainingsapp. Bitte wählen Sie aus dem Menü das Kapitel aus, aus dem Sie Fragen beantworten wollen.</string>
     <string name="logo">Platzhalter für das DHBW Logo</string>
 
     <string name="navigation_drawer_open">Öffnet das Navigationsmenü</string>
