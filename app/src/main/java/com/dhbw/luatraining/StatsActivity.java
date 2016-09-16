@@ -43,6 +43,7 @@ public class StatsActivity extends BaseActivity implements CompoundButton.OnChec
     private PieChart pieChart;
     private Switch sw1,sw2,sw3,sw4,sw5;
     private final String[] xData = {"richtig" , "falsch", "nicht beantwortet"};
+    private final int[] colors = {Color.GREEN, Color.RED, Color.GRAY};
     private float[] yData = { 19, 10, 4};
     ArrayList<Entry> entries = new ArrayList<Entry>();
 
@@ -75,7 +76,6 @@ public class StatsActivity extends BaseActivity implements CompoundButton.OnChec
 
         //settings for pie chart
         pieChart.setUsePercentValues(true);
-        pieChart.setDescription("Auswertung der gegebenen Antworten");
         pieChart.setDrawHoleEnabled(true);
         pieChart.setHoleRadius(25);
         pieChart.setTransparentCircleRadius(30);
@@ -186,27 +186,29 @@ public class StatsActivity extends BaseActivity implements CompoundButton.OnChec
     private void prepareInitialChart(){
         //method will be called in OnCreate, so it's only executed once - at the beginning - to display overall statistics
         ArrayList<Entry> yVals = new ArrayList<Entry>();
-
+        ArrayList<String> xVals = new ArrayList<String>();
+        int[] col = new int[3];
         yData[0]=overallStats[0];
         yData[1]=overallStats[1];
         yData[2]=overallStats[2];
 
 
         for (int i = 0; i < yData.length; i++){
+            if (yData[i]==0){
+
+                //prevents unnecessary values in chart. also prevents from overlapping texts in chart
+                continue;
+            }
             yVals.add(new Entry(yData[i], i));
+            xVals.add(xData[i]);
+            col[i]=colors[i];
         }
 
         PieDataSet dataSet = new PieDataSet(yVals, "");
 
-        ArrayList<String> xVals = new ArrayList<String>();
-        for (int i = 0; i < xData.length; i++){
-            xVals.add(xData[i]);
-        }
-
-
         dataSet.setSliceSpace(4);
         dataSet.setSelectionShift(5);
-        dataSet.setColors(new int[] {Color.GREEN, Color.RED, Color.GRAY});
+        dataSet.setColors(col);
         PieData data = new PieData(xVals, dataSet);
         data.setValueFormatter(new PercentFormatter());
         data.setValueTextSize(11f);
@@ -225,29 +227,31 @@ public class StatsActivity extends BaseActivity implements CompoundButton.OnChec
         //before calling this method prepare data with addToIndividualStats()
 
         ArrayList<Entry> yVals = new ArrayList<Entry>();
-
+        ArrayList<String> xVals = new ArrayList<String>();
+        int[] col = new int[3];
         yData[0]=individualStats[0];
         yData[1]=individualStats[1];
         yData[2]=individualStats[2];
 
 
         for (int i = 0; i < yData.length; i++){
+            if(yData[i]==0){
+                //prevents unnecessary values in chart. also prevents from overlapping texts in chart
+                continue;
+            }
             yVals.add(new Entry(yData[i], i));
+            xVals.add(xData[i]);
+            col[i]=colors[i];
         }
 
         PieDataSet dataSet = new PieDataSet(yVals, "Stats von xxx");
-
-        ArrayList<String> xVals = new ArrayList<String>();
-        for (int i = 0; i < xData.length; i++){
-            xVals.add(xData[i]);
-        }
 
 
         dataSet.setSliceSpace(4);
         dataSet.setSelectionShift(5);
 
         PieData data = new PieData(xVals, dataSet);
-        dataSet.setColors(new int[] {Color.GREEN, Color.RED, Color.GRAY});
+        dataSet.setColors(col);
         data.setValueFormatter(new PercentFormatter());
         data.setValueTextSize(11f);
 
