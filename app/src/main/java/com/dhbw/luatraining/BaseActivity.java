@@ -103,7 +103,7 @@ public class BaseActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_stats:
                 showStats();
                 break;
-            case R.id.nav_settings:
+            case R.id.nav_delete:
                 showSettings();
                 break;
             case R.id.nav_logging:

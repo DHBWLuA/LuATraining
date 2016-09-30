@@ -20,6 +20,7 @@
     <string name="sonstiges">Sonstiges</string>
     <string name="eigene_aufgaben">Eigene Aufgaben</string>
     <string name="auswertung">Auswertung</string>
+    <string name="zurucksetzen">Zurücksetzen</string>
     <string name="einstellungen">Einstellungen</string>
     <string name="logging">Logging</string>
     <string name="hint_eingabefeld">Eingabefeld für die Lösung</string>
@@ -30,4 +31,6 @@
     <string name="no_answer_given">Bitte wählen Sie mindestens eine Antwort aus.</string>
     <string name="reset_answers">Über diesen Button können Sie alle gegebenen Antworten zurücksetzen.</string>
     <string name="fortschritt_zurucksetzen">Fortschritt zurücksetzen</string>
+    <string name="weiter">Weiter</string>
+    <string name="next_question">Nächste Frage</string>
 </resources>

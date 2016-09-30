@@ -22,3 +22,5 @@ public class DataBaseHelper extends SQLiteAssetHelper
         return curs;
     }
 }
+
+

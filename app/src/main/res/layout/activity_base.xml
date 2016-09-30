@@ -12,7 +12,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/accent_material_dark"
+            android:background="@android:color/holo_red_dark"
             />
         <FrameLayout
             android:id="@+id/activity_content"

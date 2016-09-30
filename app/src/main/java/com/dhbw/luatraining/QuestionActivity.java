@@ -15,6 +15,7 @@ import android.text.InputType;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -70,7 +71,10 @@ public class QuestionActivity extends BaseActivity
         {
             isResultMode = false;
 
-            // remove alle checkboxes from previous question
+            Button btn = (Button) findViewById(R.id.btnNext);
+            btn.setText(R.string.weiter);
+
+            // remove all checkboxes from previous question
             LinearLayout answers = (LinearLayout) findViewById(R.id.answer);
             for (int i = answers.getChildCount() - 1; i > 0; i--)
             {
@@ -247,6 +251,9 @@ public class QuestionActivity extends BaseActivity
             showRandomQuestion();
             return;
         }
+
+        Button btn = (Button) findViewById(R.id.btnNext);
+        btn.setText(R.string.next_question);
 
         isResultMode = true;
 

@@ -16,7 +16,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="@string/einstellungen"
+        android:text="@string/fortschritt_zurucksetzen"
         android:id="@+id/textView8"
         android:layout_marginStart="15dp"
         android:layout_marginLeft="15dp"
@@ -58,7 +58,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/fortschritt_zurucksetzen"
+                android:text="@string/zurucksetzen"
                 android:id="@+id/button"
                 android:layout_marginTop="15dp"
                 android:onClick="onClick"/>

@@ -36,9 +36,9 @@
                 android:icon="@drawable/stats"
                 android:title="@string/auswertung" />
             <item
-                android:id="@+id/nav_settings"
+                android:id="@+id/nav_delete"
                 android:icon="@drawable/settings"
-                android:title="@string/einstellungen" />
+                android:title="@string/zurucksetzen" />
             <item
                 android:id="@+id/nav_logging"
                 android:icon="@drawable/settings"
